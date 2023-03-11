@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:meal/page/profile.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
@@ -51,22 +52,52 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                           child: Padding(
                             padding: ProjectEdgeInsets().vertical20,
                             child: FlipCard(
-                              front: Container(
-                                decoration: BoxDecoration(
-                                  color: ProjectColor().ddddddColor,
-                                  borderRadius: Decarations().circular25,
-                                ),
-                                width: MediaQuery.of(context).size.width / 1.1,
-                                child: Padding(
-                                  padding: ProjectEdgeInsets().ayetEkraniText,
-                                  child: SureText(
-                                    nextScreenText: SureAyet()
-                                        .getListItem(widget.pageIndex, index),
-                                    fontSize: ProjectNum().titleMedium,
-                                    fontWeight: FontWeight.w700,
-                                    letterSpacing: ProjectNum().zero,
+                              front: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: ProjectColor().ddddddColor,
+                                        borderRadius: Decarations().circular25,
+                                      ),
+                                      width: MediaQuery.of(context).size.width /
+                                          1.1,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: SingleChildScrollView(
+                                          child: SureText(
+                                            nextScreenText:
+                                                SureAyet().getListItem(
+                                              widget.pageIndex,
+                                              index,
+                                            ),
+                                            fontSize: ProjectNum().titleMedium,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: ProjectNum().zero,
+                                            maxLines: 100,
+                                            overflow: TextOverflow.visible,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Padding(
+                                    padding: ProjectEdgeInsets().top20,
+                                    child: Text(
+                                      "${index + 1}. Ayet",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            color: ProjectColor().ddddddColor,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               back: Container(
                                 decoration: BoxDecoration(
@@ -109,7 +140,13 @@ class PersonButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return const Profile();
+          },
+        ));
+      },
       icon: Icon(
         Icons.person,
         size: ProjectNum().blurRadius * 6,

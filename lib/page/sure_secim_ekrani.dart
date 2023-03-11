@@ -90,6 +90,8 @@ class _SureSecimState extends State<SureSecim> {
                               fontWeight: FontWeight.w800,
                               letterSpacing: ProjectNum().zero,
                               fontSize: ProjectNum().titleMedium,
+                              maxLines: 100,
+                              overflow: TextOverflow.visible,
                             ),
                           ),
                         ),

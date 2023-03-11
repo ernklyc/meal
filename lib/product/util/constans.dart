@@ -18,7 +18,8 @@ class ProjectEdgeInsets {
   final EdgeInsets textField =
       const EdgeInsets.only(top: 10, bottom: 10, left: 10);
   final EdgeInsets textFieldButton =
-      const EdgeInsets.only(top: 10, bottom: 10, left: 10,right: 10);
+      const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10);
+  final EdgeInsets top20 = const EdgeInsets.only(top: 20);
 }
 
 class Decarations {

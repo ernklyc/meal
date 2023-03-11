@@ -10,6 +10,8 @@ class SureText extends StatelessWidget {
     required this.fontWeight,
     required this.letterSpacing,
     required this.fontSize,
+    required int maxLines,
+    required TextOverflow overflow,
   });
 
   final String nextScreenText;
@@ -30,6 +32,7 @@ class SureText extends StatelessWidget {
               fontWeight: fontWeight,
               letterSpacing: letterSpacing,
               fontSize: fontSize,
+              fontStyle: FontStyle.italic,
             ),
       ),
     );

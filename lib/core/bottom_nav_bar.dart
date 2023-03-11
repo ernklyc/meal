@@ -54,7 +54,10 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                     },
                   ));
                 },
-                child: const Icon(Icons.note_rounded),
+                child: Icon(
+                  Icons.edit_note_sharp,
+                  size: ProjectNum().blurRadius * 6,
+                ),
               ),
               label: "",
             ),
