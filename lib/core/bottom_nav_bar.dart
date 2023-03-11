@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:meal/page/next_page_random_sure_ayet.dart';
 import 'package:meal/product/lang/karma.dart';
-import '../demo/demo.dart';
+import '../page/note_add.dart';
 import '../product/color/project_color.dart';
 import '../product/util/constans.dart';
 import 'package:url_launcher/url_launcher.dart';

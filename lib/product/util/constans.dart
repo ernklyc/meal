@@ -15,6 +15,10 @@ class ProjectEdgeInsets {
       const EdgeInsets.symmetric(vertical: 40, horizontal: 80);
   final EdgeInsets h60v40 =
       const EdgeInsets.symmetric(vertical: 40, horizontal: 60);
+  final EdgeInsets textField =
+      const EdgeInsets.only(top: 10, bottom: 10, left: 10);
+  final EdgeInsets textFieldButton =
+      const EdgeInsets.only(top: 10, bottom: 10, left: 10,right: 10);
 }
 
 class Decarations {

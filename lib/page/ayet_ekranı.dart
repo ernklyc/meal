@@ -1,13 +1,14 @@
 // ignore_for_file: file_names
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
 import '../product/lang/karma.dart';
+import '../product/lang/next_page_image.dart';
 import '../product/lang/sure_ayet_tefsir.dart';
 import '../product/util/constans.dart';
+import 'next_page_random_sure_ayet.dart';
 
 class AyetOkumaEkrani extends StatefulWidget {
   final int pageIndex;
@@ -23,14 +24,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return const SureSecim();
-            }));
-          },
-          icon: const ArrowLeft(),
-        ),
+        leading: const ArrowLeft(),
         centerTitle: true,
         elevation: ProjectNum().zero,
         title: Text(Karma().bismillah),
@@ -77,9 +71,15 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                               back: Container(
                                 decoration: BoxDecoration(
                                   color: ProjectColor().ddddddColor,
-                                  borderRadius: Decarations().circular25,
                                 ),
                                 width: MediaQuery.of(context).size.width / 1.1,
+                                child: Image.asset(
+                                  NextPageImage()
+                                      .nextPageImage[RandomInt().rastgeleSayi],
+                                  height: MediaQuery.of(context).size.height,
+                                  width: MediaQuery.of(context).size.width,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                               direction: FlipDirection.VERTICAL,
                               speed: 500,
@@ -114,6 +114,25 @@ class PersonButton extends StatelessWidget {
         Icons.person,
         size: ProjectNum().blurRadius * 6,
       ),
+    );
+  }
+}
+
+class ArrowLeft extends StatelessWidget {
+  const ArrowLeft({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        Icons.arrow_circle_left_rounded,
+        size: ProjectNum().blurRadius * 6,
+      ),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
     );
   }
 }

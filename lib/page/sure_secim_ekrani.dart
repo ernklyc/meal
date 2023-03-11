@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal/page/next_page_random_sure_ayet.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
@@ -6,7 +7,6 @@ import '../product/lang/karma.dart';
 import '../product/lang/sure_bilgileri.dart';
 import '../product/util/constans.dart';
 import 'ayet_ekranı.dart';
-import 'next_page_random_sure_ayet.dart';
 
 class SureSecim extends StatefulWidget {
   const SureSecim({super.key});
@@ -48,21 +48,8 @@ class _SureSecimState extends State<SureSecim> {
             title: Text(Karma().bismillah),
             expandedHeight: ProjectNum().height120,
             backgroundColor: ProjectColor().indicatorBG,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const NextPageRandomText();
-                    },
-                  ),
-                );
-              },
-              icon: const ArrowLeft(),
-            ),
-            actions: const [
-              PersonButton(),
-            ],
+            leading: const _ArrowLeft(),
+            actions: const [PersonButton()],
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -157,16 +144,23 @@ class _SureSecimState extends State<SureSecim> {
   }
 }
 
-class ArrowLeft extends StatelessWidget {
-  const ArrowLeft({
-    super.key,
-  });
+class _ArrowLeft extends StatelessWidget {
+  const _ArrowLeft();
 
   @override
   Widget build(BuildContext context) {
-    return Icon(
-      Icons.arrow_circle_left_rounded,
-      size: ProjectNum().blurRadius * 6,
+    return IconButton(
+      icon: Icon(
+        Icons.arrow_circle_left_rounded,
+        size: ProjectNum().blurRadius * 6,
+      ),
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return const NextPageRandomText();
+          },
+        ));
+      },
     );
   }
 }
