@@ -13,8 +13,8 @@ class ProjectEdgeInsets {
       const EdgeInsets.symmetric(horizontal: 15, vertical: 10);
   final EdgeInsets h40v80 =
       const EdgeInsets.symmetric(vertical: 40, horizontal: 80);
-  final EdgeInsets h60v40 =
-      const EdgeInsets.symmetric(vertical: 40, horizontal: 60);
+  final EdgeInsets h60v30 =
+      const EdgeInsets.symmetric(vertical: 30, horizontal: 60);
   final EdgeInsets textField =
       const EdgeInsets.only(top: 10, bottom: 10, left: 10);
   final EdgeInsets textFieldButton =

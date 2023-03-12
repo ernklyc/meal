@@ -111,11 +111,11 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                             padding: ProjectEdgeInsets().vertical20,
                             child: FlipCard(
                               front: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                    flex: 4,
+                                    flex: 9,
                                     child: Container(
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
@@ -162,6 +162,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                 ],
                               ),
                               back: Container(
+                                alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   color: ProjectColor().ddddddColor,
                                 ),

@@ -18,7 +18,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: ProjectEdgeInsets().h60v40,
+      padding: ProjectEdgeInsets().h60v30,
       child: Container(
         decoration: BoxDecoration(
           color: ProjectColor().ddddddColor,

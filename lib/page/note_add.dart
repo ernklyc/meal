@@ -122,68 +122,71 @@ class _AddNoteState extends State<AddNote> {
                 },
               ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: Padding(
-                    padding: ProjectEdgeInsets().textField,
-                    child: TextFormField(
-                      controller: _textFieldController,
-                      onEditingComplete: _addNote,
-                      style: TextStyle(
-                        color: ProjectColor().indicatorBG,
-                        fontSize: ProjectNum().titleMedium,
+            Padding(
+              padding: ProjectEdgeInsets().vertical20,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Padding(
+                      padding: ProjectEdgeInsets().textField,
+                      child: TextFormField(
+                        controller: _textFieldController,
+                        onEditingComplete: _addNote,
+                        style: TextStyle(
+                          color: ProjectColor().indicatorBG,
+                          fontSize: ProjectNum().titleMedium,
+                        ),
+                        cursorColor: ProjectColor().indicatorBG,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: ProjectColor().ddddddColor,
+                            ),
+                          ),
+                          hintStyle: TextStyle(
+                            color: ProjectColor().indicatorBG,
+                          ),
+                          border: const OutlineInputBorder(),
+                          prefixIcon: Icon(
+                            Icons.edit_note,
+                            color: ProjectColor().indicatorBG,
+                            size: ProjectNum().titleLarge,
+                          ),
+                          isDense: true,
+                          filled: true,
+                          hintText: "",
+                          fillColor: ProjectColor().ddddddColor,
+                          contentPadding: ProjectEdgeInsets().horizontal20,
+                          labelStyle:
+                              TextStyle(color: ProjectColor().indicatorBG),
+                        ),
                       ),
-                      cursorColor: ProjectColor().indicatorBG,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: ProjectColor().ddddddColor,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: ProjectEdgeInsets().textFieldButton,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                            ProjectColor().ddddddColor,
                           ),
                         ),
-                        hintStyle: TextStyle(
-                          color: ProjectColor().indicatorBG,
-                        ),
-                        border: const OutlineInputBorder(),
-                        prefixIcon: Icon(
-                          Icons.edit_note,
-                          color: ProjectColor().indicatorBG,
-                          size: ProjectNum().titleLarge,
-                        ),
-                        isDense: true,
-                        filled: true,
-                        hintText: "",
-                        fillColor: ProjectColor().ddddddColor,
-                        contentPadding: ProjectEdgeInsets().horizontal20,
-                        labelStyle:
-                            TextStyle(color: ProjectColor().indicatorBG),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: ProjectEdgeInsets().textFieldButton,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(
-                          ProjectColor().ddddddColor,
-                        ),
-                      ),
-                      onPressed: _addNote,
-                      child: Padding(
-                        padding: ProjectEdgeInsets().vertical20 / 2,
-                        child: Icon(
-                          Icons.add,
-                          color: ProjectColor().indicatorBG,
+                        onPressed: _addNote,
+                        child: Padding(
+                          padding: ProjectEdgeInsets().vertical20 / 2,
+                          child: Icon(
+                            Icons.add,
+                            color: ProjectColor().indicatorBG,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
