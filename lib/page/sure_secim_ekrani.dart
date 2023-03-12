@@ -48,7 +48,7 @@ class _SureSecimState extends State<SureSecim> {
             title: Text(Karma().bismillah),
             expandedHeight: ProjectNum().height120,
             backgroundColor: ProjectColor().indicatorBG,
-            leading: const _ArrowLeft(),
+            leading: const ArrowLeft(),
             actions: const [PersonButton()],
           ),
           SliverList(
@@ -146,8 +146,8 @@ class _SureSecimState extends State<SureSecim> {
   }
 }
 
-class _ArrowLeft extends StatelessWidget {
-  const _ArrowLeft();
+class ArrowLeft extends StatelessWidget {
+  const ArrowLeft({super.key});
 
   @override
   Widget build(BuildContext context) {

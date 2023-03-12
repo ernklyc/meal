@@ -21,22 +21,71 @@ class AyetOkumaEkrani extends StatefulWidget {
 }
 
 class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
+  final TextEditingController _searchController = TextEditingController();
+
+  void _filterSureBilgileri(String query) {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const ArrowLeft(),
-        centerTitle: true,
-        elevation: ProjectNum().zero,
-        title: Text(Karma().bismillah),
-        actions: const [PersonButton()],
-        automaticallyImplyLeading: false,
-        backgroundColor: ProjectColor().indicatorBG,
-      ),
       backgroundColor: ProjectColor().indicatorBG,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
+          SliverAppBar(
+            bottom: AppBar(
+              elevation: ProjectNum().zero,
+              automaticallyImplyLeading: false,
+              backgroundColor: ProjectColor().indicatorBG,
+              title: Padding(
+                padding: ProjectEdgeInsets().textFieldButton,
+                child: SizedBox(
+                  height: ProjectNum().height45,
+                  child: TextFormField(
+                    controller: _searchController,
+                    onChanged: _filterSureBilgileri,
+                    cursorColor: ProjectColor().indicatorBG,
+                    style: TextStyle(
+                      color: ProjectColor().indicatorBG,
+                      fontSize: ProjectNum().titleMedium,
+                    ),
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: ProjectColor().ddddddColor,
+                        ),
+                      ),
+                      hintStyle: TextStyle(
+                        color: ProjectColor().indicatorBG,
+                      ),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: ProjectColor().indicatorBG,
+                      ),
+                      isDense: true,
+                      filled: true,
+                      hintText: Karma().textFieldText2,
+                      fillColor: ProjectColor().ddddddColor,
+                      contentPadding: ProjectEdgeInsets().horizontal20,
+                      labelStyle: TextStyle(color: ProjectColor().indicatorBG),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            snap: true,
+            pinned: true,
+            floating: true,
+            centerTitle: true,
+            title: Text(Karma().bismillah),
+            expandedHeight: ProjectNum().height120,
+            backgroundColor: ProjectColor().indicatorBG,
+            leading: const ArrowLeft(),
+            actions: const [PersonButton()],
+          ),
           SliverToBoxAdapter(
             child: SizedBox(
               height: MediaQuery.of(context).size.width * 1.3,
@@ -44,6 +93,15 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
+                  final sureText = "${index + 1}";
+
+                  // Arama metni varsa ve aranılan metin bulunamazsa null döndürür
+                  if (_searchController.text.isNotEmpty &&
+                      !sureText
+                          .toLowerCase()
+                          .contains(_searchController.text.toLowerCase())) {
+                    return const SizedBox.shrink();
+                  }
                   return GestureDetector(
                     child: Row(
                       children: [
@@ -57,6 +115,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Expanded(
+                                    flex: 4,
                                     child: Container(
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
@@ -84,17 +143,20 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: ProjectEdgeInsets().top20,
-                                    child: Text(
-                                      "${index + 1}. Ayet",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleMedium
-                                          ?.copyWith(
-                                            color: ProjectColor().ddddddColor,
-                                            fontWeight: FontWeight.w800,
-                                          ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: ProjectEdgeInsets().top20,
+                                      child: Text(
+                                        "${index + 1}. Ayet",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium
+                                            ?.copyWith(
+                                              color: ProjectColor().ddddddColor,
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ],
